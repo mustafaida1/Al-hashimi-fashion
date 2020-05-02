@@ -25,6 +25,8 @@ const MenuItem = ({ title, imageUrl, small, linkTo, push }) => (
   </MenuItemContainer>
 );
 
+
+
 const mapDispatchToProps = dispatch => ({
   push: route => dispatch(push(route))
 });

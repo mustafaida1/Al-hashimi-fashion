@@ -16,7 +16,7 @@ const StripeCheckoutButton = ({ price, push, resetCart }) => {
   return (
     <StripeCheckout
       label='Pay with 💳'
-      name='CRWN Clothing Ltd.'
+      name='AL-HASHIMI Ltd.'
       billingAddress
       shippingAddress
       image='https://svgshare.com/i/CUz.svg'

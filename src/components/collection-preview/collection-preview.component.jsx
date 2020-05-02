@@ -12,7 +12,9 @@ import {
   PreviewContainer
 } from './collection-preview.styles';
 
-const CollectionPreview = ({ title, items, routeName, push, pathname }) => (
+const CollectionPreview = ({ title, items, routeName, push, pathname }) => {
+  console.log(routeName)
+  return(
   <CollectionPreviewContainer>
     <TitleContainer onClick={() => push(`${pathname}/${routeName}`)}>
       {title}
@@ -23,7 +25,7 @@ const CollectionPreview = ({ title, items, routeName, push, pathname }) => (
       ))}
     </PreviewContainer>
   </CollectionPreviewContainer>
-);
+)};
 
 const mapStateToProps = state => ({
   pathname: getLocationPathname(state)

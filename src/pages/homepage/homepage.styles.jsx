@@ -6,4 +6,6 @@ export const HomepageContainer = styled.div`
   align-items: center;
 `;
 
+
+
 HomepageContainer.displayName = 'HomepageContainer';

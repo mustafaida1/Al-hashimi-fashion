@@ -1,7 +1,8 @@
 import { UserActionTypes } from './user.types';
 
 const INITIAL_STATE = {
-  currentUser: null
+  currentUser: null,
+  pathLoc: ""
 };
 
 export const userReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ export const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentUser: action.payload
+      };
+    case UserActionTypes.SET_CURRENT_PATH:
+      return {
+        ...state,
+        pathLoc: action.payload
       };
     default:
       return state;
