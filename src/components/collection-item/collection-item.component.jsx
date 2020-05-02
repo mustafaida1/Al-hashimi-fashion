@@ -41,7 +41,7 @@ const CollectionItem = ({ item, setCurrentPath, path }) => {
       <button type="button" class="btn btn-primary" onClick={() => setCurrentPath(`${name} ${price} ${imageUrl} ${description}`)}  data-toggle="modal" data-target="#modalQuickView">Launch
   modal</button>
 
-      <Modal />
+      <Modal item={item}/>
       </CollectionItemContainer>
       </div>
       

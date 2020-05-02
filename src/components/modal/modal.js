@@ -6,7 +6,7 @@ import { getPathLoc } from '../../redux/user/user.selectors';
 import { addItemToCart } from '../../redux/cart/cart.actions';
 import './modal.css'
 
-const Modal = ({path})=> {
+const Modal = ({path, dispatch, item})=> {
     
   console.log(path)
     const all = path.split(" ");
@@ -136,9 +136,9 @@ const Modal = ({path})=> {
               <div className="text-center">
 
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                {/* <button className="btn btn-primary" onClick={() => dispatch(addItemToCart(item))}>Add to cart
+                <button className="btn btn-primary" onClick={() => dispatch(addItemToCart(item))}>Add to cart
                   <i className="fas fa-cart-plus ml-2" aria-hidden="true"></i>
-                </button> */}
+                </button>
               </div>
             </div>
             
