@@ -8,9 +8,11 @@ import './modal.css'
 
 const Modal = ({path, dispatch, item})=> {
     
-  console.log(path)
+  
     const all = path.split(" ");
+    
     const des = all.slice(4);
+    // console.log(des.join(" "));
     return (
         <div class="modal fade" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -95,7 +97,7 @@ const Modal = ({path, dispatch, item})=> {
                 <div id="collapseOne1" className="collapse show" role="tabpanel" aria-labelledby="headingOne1"
                   data-parent="#accordionEx">
                   <div className="card-body">
-                    {des}
+                    <p>{des.join(" ")}</p>
                   </div>
                 </div>
 

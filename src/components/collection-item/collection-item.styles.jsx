@@ -28,9 +28,9 @@ export const CollectionItemContainer = styled.div`
 `;
 
 export const AddButton = styled.div`
-  position: absolute;
+  display:flex;
   height: 50px;
-  width: 80%;
+  width: 50%;
   padding: 25px;
   opacity: 0.7;
   background-color: white;

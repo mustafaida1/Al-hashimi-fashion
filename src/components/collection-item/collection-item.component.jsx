@@ -14,9 +14,9 @@ import {
 } from './collection-item.styles';
 import './fontawesome.css'
 
-const CollectionItem = ({ item, setCurrentPath, path }) => {
+const CollectionItem = ({ item, dispatch }) => {
   const { imageUrl, name, price, description } = item;
-  console.log(path)
+  console.log(item)
   return (
     <div>
     <CollectionItemContainer>
@@ -28,34 +28,42 @@ const CollectionItem = ({ item, setCurrentPath, path }) => {
         <NameContainer>{name}</NameContainer>
         <PriceContainer>${price}</PriceContainer>
       </CollectionFooterContainer>
-      {/* <AddButton className="add-button"
+      <AddButton className="add-button"
        
-        
+      
         onClick={() => dispatch(addItemToCart(item))}
+        
       >
         ADD TO CART
         
-    
-      </AddButton> */}
       
-      <button type="button" class="btn btn-primary" onClick={() => setCurrentPath(`${name} ${price} ${imageUrl} ${description}`)}  data-toggle="modal" data-target="#modalQuickView">Launch
-  modal</button>
+      </AddButton>
+      <AddButton className="add-button"
+       
+       data-toggle="modal" data-target="#modalQuickView"
+        
+        onClick={() => dispatch(setCurrentPath(`${name} ${price} ${imageUrl} ${description}`))}
+      >
+        QUICK VIEW
+        
+      
+      </AddButton>
+      
+      {/* <button type="button" class="btn btn-primary" onClick={() => setCurrentPath(`${name} ${price} ${imageUrl} ${description}`)}  data-toggle="modal" data-target="#modalQuickView">Quick View</button> */}
 
-      <Modal item={item}/>
+    <Modal item={item} />
       </CollectionItemContainer>
       </div>
-      
-      
   );
 };
 
-const mapStateToProps = state => ({
-  path: getPathLoc(state)
+// const mapStateToProps = state => ({
+//   path: getPathLoc(state)
   
-});
+// });
 
-const mapDispatchToProps = dispatch => ({
-  setCurrentPath: path => dispatch(setCurrentPath(path))
-});
+// const mapDispatchToProps = dispatch => ({
+//   setCurrentPath: path => dispatch(setCurrentPath(path))
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);
+export default connect()(CollectionItem);

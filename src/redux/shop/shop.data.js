@@ -9,7 +9,7 @@ export const SHOP_ITEMS = {
         name: 'Brown Brim',
         imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
         price: 25,
-        description: "lorem ispum slkjfsdlfjslfjsdkfjsdklfjsklfjsdkfjdklfjsdklfjslfjsdlfjsdlfjsdklfjsklfjsklfjsdlfjsdklfjsdklfjsdkdfjsdl  fsdkfjsdkf   fsdjflsdjfsdl \n slkfjsldfjsdlfjs",
+        description: `Woman's floppy wide brim hat with great sun protection  Round top crown. \nMesh braided pattern. \nCrushable and flexible. \nFloppy wide brim. \nOur ladies fashion hat is great for your next trips, vacations, gardening, picnics and other summer outings. \nSpring and summer. \nThick, soft and flexible material. \nAvailable in different colors and styles.`,
         routeDes: "des"
       },
       {
