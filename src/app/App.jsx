@@ -12,7 +12,7 @@ import ShopPage from '../pages/shop/shop.component';
 import ContactPage from '../pages/contact/contact';
 import SigninAndSignupPage from '../pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from '../pages/checkout/checkout.component';
-import About from '../pages/about/about.component'
+
 
 
 import { setCurrentUser } from '../redux/user/user.actions';
@@ -63,7 +63,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route exact path='/contact' component={ContactPage} />
-          <Route  path="/about" component={About} />
+         
           <Route
             exact
             path='/signIn'

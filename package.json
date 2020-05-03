@@ -1,5 +1,5 @@
 {
-  "name": "complete-react-course",
+  "name": "Al-hashimi-fashion",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "styled-components": "4.2.0"
   },
   "scripts": {
-    "start": "PORT=9000 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

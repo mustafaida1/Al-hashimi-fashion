@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getCategory } from '../../redux/shop/shop.selectors.js';
-import { getShopItems } from '../../redux/shop/shop.selectors.js';
+
 import CollectionItem from '../collection-item/collection-item.component';
 
 import {

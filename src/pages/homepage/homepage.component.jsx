@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Directory from '../../components/directory/directory.component';
-import { HomepageContainer, Flex } from './homepage.styles';
+import { HomepageContainer } from './homepage.styles';
 import IconsB from '../../components/IconBottom/Icons'
 
 const HomePage = () => (

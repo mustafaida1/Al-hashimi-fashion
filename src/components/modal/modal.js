@@ -54,13 +54,13 @@ const Modal = ({path, dispatch, item})=> {
              
               <ol className="carousel-indicators">
                 <li data-target="#carousel-thumb" data-slide-to="0" class="active">
-                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(23).jpg" width="60"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(23).jpg" alt="" width="60"/>
                 </li>
                 <li data-target="#carousel-thumb" data-slide-to="1">
-                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(24).jpg" width="60"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(24).jpg" alt="" width="60"/>
                 </li>
                 <li data-target="#carousel-thumb" data-slide-to="2">
-                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(25).jpg" width="60"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(25).jpg" alt="" width="60"/>
                 </li>
               </ol>
             </div>

@@ -5,7 +5,7 @@ import CustomButton from '../../../components/custom-button/custom-button.compon
 
 // import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
-import { SignUpContainer, SignUpTitle, TextAR } from './sign-up.styles';
+import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
 class SignUp extends React.Component {
   state = { displayName: '', email: '', password: '', confirmPassword: '', number:'' };

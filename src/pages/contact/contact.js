@@ -9,7 +9,7 @@ const ContactPage = () => {
 		<div>
 			<SignInAndSignUpContainer>
 				<SignUp />
-				<img src={Cont} id="big"/>
+				<img src={Cont} alt="" id="big"/>
 			</SignInAndSignUpContainer>
 		</div>
 )

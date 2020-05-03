@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Modal from '../modal/modal'
 import { addItemToCart } from '../../redux/cart/cart.actions';
 import { setCurrentPath } from '../../redux/user/user.actions'
-import { getPathLoc } from '../../redux/user/user.selectors'
+
 import {
   CollectionItemContainer,
   AddButton,
