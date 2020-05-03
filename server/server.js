@@ -15,7 +15,7 @@ const configureRoutes = require('./routes');
 
 configureRoutes(app);
 
-app.listen(8000, error => {
+app.listen(process.env.PORT, error => {
   if (error) throw error;
   console.log('Server running on port ' + 8000);
 });
