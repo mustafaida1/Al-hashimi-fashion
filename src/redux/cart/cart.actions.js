@@ -23,3 +23,8 @@ export const removeItemAllFromCart = id => ({
 export const resetCart = () => ({
   type: CartActionTypes.RESET_CART
 });
+
+export const reItem = (items) => ({
+  type:   CartActionTypes.RE_ITEM,
+  payload: items
+})

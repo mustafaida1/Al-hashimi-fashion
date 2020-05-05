@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import Modal from '../modal/modal'
 import { addItemToCart } from '../../redux/cart/cart.actions';
 import { setCurrentPath } from '../../redux/user/user.actions'
+// import { reItem } from '../../redux/cart/cart.actions'
+import { getPathLoc } from '../../redux/user/user.selectors'
+// import { getItems } from '../../redux/cart/cart.selectors'
 
 import {
   CollectionItemContainer,
@@ -14,9 +17,9 @@ import {
 } from './collection-item.styles';
 import './fontawesome.css'
 
-const CollectionItem = ({ item, dispatch }) => {
-  const { imageUrl, name, price, description } = item;
-  console.log(item)
+const CollectionItem = ({ item, dispatch, ites }) => {
+  const { imageUrl, name, price, description, image2Url } = item;
+  
   return (
     <div>
     <CollectionItemContainer>
@@ -42,7 +45,7 @@ const CollectionItem = ({ item, dispatch }) => {
        
        data-toggle="modal" data-target="#modalQuickView"
         
-        onClick={() => dispatch(setCurrentPath(`${name} ${price} ${imageUrl} ${description}`))}
+        onClick={() => dispatch(setCurrentPath(`${name} ${price} ${imageUrl} ${image2Url} ${description}`))}
       >
         QUICK VIEW
         
@@ -57,13 +60,13 @@ const CollectionItem = ({ item, dispatch }) => {
   );
 };
 
-// const mapStateToProps = state => ({
-//   path: getPathLoc(state)
+const mapStateToProps = state => ({
+  path: getPathLoc(state)
   
-// });
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   setCurrentPath: path => dispatch(setCurrentPath(path))
 // });
 
-export default connect()(CollectionItem);
+export default connect(mapStateToProps)(CollectionItem);

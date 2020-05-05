@@ -22,11 +22,12 @@ const Header = ({ currentUser, hidden, value, disabled, onTextChange }) => (
       <Logo className='logo' />
       
     </LogoContainer>
+    
+    <OptionsContainer>
     <div className="container">
       <input type="text" placeholder="Search..."/>
       <div className="search"></div>
     </div>
-    <OptionsContainer>
       <OptionLink to='/shop'>
         <span>SHOP</span>
       </OptionLink>

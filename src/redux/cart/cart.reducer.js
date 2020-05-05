@@ -4,7 +4,8 @@ import { addItem, removeItem } from './cart.utils';
 
 const INITIAL_STATE = {
   hidden: true,
-  cartItems: []
+  cartItems: [],
+  itesm:{}
 };
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
@@ -34,6 +35,11 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.RESET_CART:
       return {
         ...INITIAL_STATE
+      };
+    case CartActionTypes.RE_ITEM:
+      return {
+        ...INITIAL_STATE,
+        itesm:action.payload
       };
     default:
       return state;
