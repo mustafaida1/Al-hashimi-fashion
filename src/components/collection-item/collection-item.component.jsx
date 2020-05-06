@@ -17,8 +17,8 @@ import {
 } from './collection-item.styles';
 import './fontawesome.css'
 
-const CollectionItem = ({ item, dispatch, ites }) => {
-  const { imageUrl, name, price, description, image2Url } = item;
+const CollectionItem = ({ item, dispatch }) => {
+  const { imageUrl, name, price, description } = item;
   
   return (
     <div>
@@ -45,7 +45,7 @@ const CollectionItem = ({ item, dispatch, ites }) => {
        
        data-toggle="modal" data-target="#modalQuickView"
         
-        onClick={() => dispatch(setCurrentPath(`${name} ${price} ${imageUrl} ${image2Url} ${description}`))}
+        onClick={() => dispatch(setCurrentPath(`${name} ${price} ${imageUrl} ${description}`))}
       >
         QUICK VIEW
         

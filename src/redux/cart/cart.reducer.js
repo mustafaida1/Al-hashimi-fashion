@@ -5,7 +5,7 @@ import { addItem, removeItem } from './cart.utils';
 const INITIAL_STATE = {
   hidden: true,
   cartItems: [],
-  itesm:{}
+  
 };
 
 export const cartReducer = (state = INITIAL_STATE, action) => {

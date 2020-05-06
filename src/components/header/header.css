@@ -54,9 +54,9 @@ body {
 
 
 .container {
-  position: relative;
+  position: absolute;
   margin: auto;
-  top: 10px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -64,15 +64,15 @@ body {
   height: 100px;
 }
 .container .search {
-  position: relative;
+  position: absolute;
   margin: auto;
-  top: 10px;
+  top: 18px;
   right: 0;
   bottom: 0;
   left: 0;
   width: 40px;
   height: 40px;
-  background: rgb(185, 162, 167);
+  background: rgb(155, 154, 154);
   border-radius: 50%;
   transition: all 1s;
   z-index: 4;
@@ -93,7 +93,7 @@ body {
   height: 2px;
   background: white;
   transform: rotate(45deg);
-  transition: all 0.5s;
+  transition: all .5s;
 }
 .container .search::after {
   content: "";
@@ -107,13 +107,13 @@ body {
   height: 25px;
   border-radius: 50%;
   border: 2px solid white;
-  transition: all 0.5s;
+  transition: all .5s;
 }
 .container input {
-  font-family: "Inconsolata", monospace;
+  font-family: 'Inconsolata', monospace;
   position: absolute;
   margin: auto;
-  top: 0;
+  top: 18px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -121,7 +121,7 @@ body {
   height: 50px;
   outline: none;
   border: none;
-  background: rgb(210, 181, 219);
+  background: crimson;
   color: white;
   text-shadow: 0 0 10px crimson;
   padding: 0 80px 0 20px;
@@ -166,7 +166,6 @@ body {
   opacity: 0.5;
   font-weight: bolder;
 }
-
 @media only screen and (max-width: 600px) {
   .container {
     display: none;

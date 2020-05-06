@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import { getPathLoc } from '../../redux/user/user.selectors';
 
-import { addItemToCart } from '../../redux/cart/cart.actions';
+
 import './modal.css'
 
 const Modal = ({path, dispatch, item})=> {
@@ -14,7 +14,7 @@ const Modal = ({path, dispatch, item})=> {
     const des = all.slice(4);
     // console.log(des.join(" "));
     return (
-        <div class="modal fade" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div className="modal fade" id="modalQuickView" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
   <div className="modal-dialog modal-lg" role="document">
     <div className="modal-content">
@@ -22,7 +22,7 @@ const Modal = ({path, dispatch, item})=> {
         <div className="row">
           <div className="col-lg-5">
             
-            <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails"
+            <div id="carousel-thumb" className="carousel slide carousel-fade carousel-thumbnails"
               data-ride="carousel">
              
               <div className="carousel-inner" role="listbox">
@@ -53,7 +53,7 @@ const Modal = ({path, dispatch, item})=> {
               </a>
              
               <ol className="carousel-indicators">
-                <li data-target="#carousel-thumb" data-slide-to="0" class="active">
+                <li data-target="#carousel-thumb" data-slide-to="0" className="active">
                   <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(23).jpg" alt="" width="60"/>
                 </li>
                 <li data-target="#carousel-thumb" data-slide-to="1">
@@ -88,7 +88,7 @@ const Modal = ({path, dispatch, item})=> {
                   <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
                     aria-controls="collapseOne1">
                     <h5 className="mb-0">
-                      Description <i class="fas fa-angle-down rotate-icon"></i>
+                      Description <i className="fas fa-angle-down rotate-icon"></i>
                     </h5>
                   </a>
                 </div>
@@ -137,10 +137,8 @@ const Modal = ({path, dispatch, item})=> {
               </div>
               <div className="text-center">
 
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button className="btn btn-primary" onClick={() => dispatch(addItemToCart(item))}>Add to cart
-                  <i className="fas fa-cart-plus ml-2" aria-hidden="true"></i>
-                </button>
+                <button type="button" className="btn btn-secondary btn-larger" data-dismiss="modal">Close</button>
+                
               </div>
             </div>
             
