@@ -199,7 +199,7 @@ export const SHOP_ITEMS = {
       },
       {
         id: 26,
-        name: 'Red Dots Dress',
+        name: 'Red-Dots Dress',
         imageUrl: 'https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png',
         price: 80
       },
@@ -211,7 +211,7 @@ export const SHOP_ITEMS = {
       },
       {
         id: 28,
-        name: 'Yellow Track Suit',
+        name: 'Yellow-Track Suit',
         imageUrl: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.png',
         price: 135
       },
@@ -230,7 +230,7 @@ export const SHOP_ITEMS = {
     items: [
       {
         id: 30,
-        name: 'Camo Down Vest',
+        name: 'Camo-Down Vest',
         imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
         price: 325
       },
@@ -242,7 +242,7 @@ export const SHOP_ITEMS = {
       },
       {
         id: 32,
-        name: 'Black & White Longsleeve',
+        name: 'Black-&-White Longsleeve',
         imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
         price: 25
       },
@@ -254,7 +254,7 @@ export const SHOP_ITEMS = {
       },
       {
         id: 34,
-        name: 'Jean Long Sleeve',
+        name: 'Jean-Long Sleeve',
         imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
         price: 40
       },
