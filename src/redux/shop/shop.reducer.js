@@ -1,4 +1,5 @@
 import { SHOP_ITEMS } from './shop.data';
+import { setDiscount } from './shop.types'
 
   // let filtred = this.props.shop ? Object.keys(this.props.shop).forEach(igkey => {
   //   this.props.shop[igkey].items.filter(ke => {
@@ -8,7 +9,7 @@ import { SHOP_ITEMS } from './shop.data';
 
 const INITIAL_STATE = {
   items: SHOP_ITEMS,
-  filtred:''
+  discount: false
 };
 // INITIAL_STATE.filtred = INITIAL_STATE.items ? Object.keys(INITIAL_STATE.items).forEach(igkey => {
 //   INITIAL_STATE.items[igkey].items.filter(ke => {
@@ -19,6 +20,11 @@ const INITIAL_STATE = {
 
 export const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case setDiscount.SET_DISCOUNT:
+      return {
+        ...state,
+        discount: true
+      }
     default:
       return state;
   }

@@ -183,13 +183,15 @@ export const SHOP_ITEMS = {
         id: 23,
         name: 'Blue Tanktop',
         imageUrl: 'https://i.ibb.co/7CQVJNm/blue-tank.png',
-        price: 25
+        price: 25,
+        description: "This Tanktop is a wardrobe classic that every women needs. \nThigh length is good for lounging or sleeping, Wear it alone as a top, or layer it under shirts ad sweaters when the weather turns cooler. \nThis slightly relaxed muscle tank is perfect for throwing on over jeans or shorts. \nWith a crew neckline and relaxed armholes its laidback yet loaded with fashion forward vibes. \nTiara Intimate Apparel is the leading brand producing exceptional quality products with immense care on the fabric and fit. \nAll undergarments are made from the finest materials available to give absolute comfort, it is finished with inimitable durable workmanship to give consistently exceptional quality."
       },
       {
         id: 24,
         name: 'Floral Blouse',
         imageUrl: 'https://i.ibb.co/4W2DGKm/floral-blouse.png',
-        price: 20
+        price: 20,
+        description: "This is a poly satin silk digital printed saree blouse . \nIt is ready to wear and can be worn with any contrast coloured saree. \nThis blouse has elbow length sleeves and a boat neck in front and the back. \nTeam it with a solid colour saree.this blouse is lined with pure cotton."
       },
       {
         id: 25,
@@ -201,25 +203,29 @@ export const SHOP_ITEMS = {
         id: 26,
         name: 'Red-Dots Dress',
         imageUrl: 'https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png',
-        price: 80
+        price: 80,
+        description:"Women Navy printed tailored dress. \nNavy and white printed woven tailored dress, has a stylised keyhole neckline with a tie-up detail, three-quarter sleeves, curved hem."
       },
       {
         id: 27,
         name: 'Striped Sweater',
         imageUrl: 'https://i.ibb.co/KmSkMbH/striped-sweater.png',
-        price: 45
+        price: 45,
+        description: "KVL brings a range of latest apparels for all the fashion enthusiasts. The light weight fabric of the clothes will be soft on your skin and make you feel comfortable even after long hours of wearing. It helps you look simple, sober yet stylish with our wide range of clothing. \nOur garments are made from fancy high quality material and are beautifully adorned with eye-catchy designs that give a soothing look to the attire."
       },
       {
         id: 28,
         name: 'Yellow-Track Suit',
         imageUrl: 'https://i.ibb.co/v1cvwNf/yellow-track-suit.png',
-        price: 135
+        price: 135,
+        description:"Get a more elevated look with a pair of print stretch ankle length pull on pants! They will compliment your legs and match all of your outfits. Perfect ankle length pants, highlighting for long legs. \nPull-on leggings, no zipper fly or button closure, very convenient and comfortable"
       },
       {
         id: 29,
         name: 'White Blouse',
         imageUrl: 'https://i.ibb.co/qBcrsJg/white-vest.png',
-        price: 20
+        price: 20,
+        description:"Al-hashimi Fabrics brings to you this blouse which is made from cotton lycra and is gold in color. \nThis blouse has been designed keeping in mind the latest trends in contemporary casual fashion. \nits a free size ready to wear blouse which can fit a wide size range between 28 inches -38 inches as the fabric is of high quality strechability."
       }
     ]
   },
@@ -232,37 +238,50 @@ export const SHOP_ITEMS = {
         id: 30,
         name: 'Camo-Down Vest',
         imageUrl: 'https://i.ibb.co/xJS0T3Y/camo-vest.png',
-        price: 325
+        price: 325,
+        description:"This como vest has 2 handwarmer pockets, giving you quick access to your essential hunt gear. \nIt also has a drawstring waist, high collar, and true-cut fit. \nIt’s designed to keep you warm for outdoor sports like hunting, fishing, or camping."
       },
       {
         id: 31,
         name: 'Floral T-shirt',
         imageUrl: 'https://i.ibb.co/qMQ75QZ/floral-shirt.png',
-        price: 20
+        price: 20,
+        description: "Take a more relaxed approach towards fashion wearing these t-shirts from the house Duke. \nMade from superior fabric, these will offer you an excellent fit and comfort."
       },
       {
         id: 32,
         name: 'Black-&-White Longsleeve',
         imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
-        price: 25
+        price: 25,
+        description:"Shop from a wide range of Shirt from Peppyzone. Perfect for your everyday use, you could pair it with a stylish pair of Jeans or Trousers complete the look."
       },
       {
         id: 33,
         name: 'Pink T-shirt',
         imageUrl: 'https://i.ibb.co/RvwnBL8/pink-shirt.png',
-        price: 25
+        price: 25,
+        description:"Enhance your basics with this printed t-shirt designed with a crew neck and short sleeves. \nA perfect styling is when you team it with ripped jeans and a pair of sneakers."
       },
       {
         id: 34,
-        name: 'Jean-Long Sleeve',
+        name: 'Jeans-Long Sleeve',
         imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
-        price: 40
+        price: 40,
+        description:`Our ode to indigo and the classic denim feel. In a sleek, slim fit.
+        - Rope-dyed to achieve a rich indigo color.
+        - Treated with a special technique developed at our Jeans Innovation Center for an authentic vintage look.
+        - Elegant details like a traditional placket and narrow stitching.
+        - Red ear piping inside the collar and hem gussets recreate the classic denim shirt style.
+        - Shoulders designed with curved angles for easy movement.
+        - A flattering cut that shows off the beautiful drape of the fabric.
+        - Newly updated with higher density 6.5 oz 100% cotton denim for a more casual look.`
       },
       {
         id: 35,
         name: 'Burgundy T-shirt',
         imageUrl: 'https://i.ibb.co/mh3VM1f/polka-dot-shirt.png',
-        price: 25
+        price: 25,
+        description:"Burgundy solid T-shirt, has a Henley neck, and long sleeves"
       }
     ]
   }

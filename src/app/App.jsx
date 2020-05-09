@@ -19,7 +19,7 @@ import { setCurrentUser } from '../redux/user/user.actions';
 import { getCurrentUser } from '../redux/user/user.selectors';
 import { setCurrentPath } from '../redux/user/user.actions';
 import { getPathLoc } from '../redux/user/user.selectors';
-
+import { getDiscount } from '../redux/shop/shop.selectors';
 
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
 
@@ -52,18 +52,16 @@ class App extends React.Component {
   
   render() {
     
-    console.log(this.props)
+    console.log(this.props.dis)
     
     return (
-      <div className='App'>
+      <div className='App' >
          
         <Header />
         
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route exact path='/contact' component={ContactPage} />
-         
           <Route
             exact
             path='/signIn'
@@ -75,7 +73,10 @@ class App extends React.Component {
               )
             }
           />
-          <Route exact path='/checkout' component={CheckoutPage} />
+          {this.props.currentUser ? <Route exact path='/contact' component={ContactPage} /> : <h1 className="center">Register or Signin to complete</h1>}
+         
+          
+          {this.props.currentUser ? <Route exact path='/checkout' component={CheckoutPage} /> : <h1 className="center">Register or Signin</h1> } 
         </Switch>
         
       </div>
@@ -87,7 +88,8 @@ const mapStateToProps = state => ({
   currentUser: getCurrentUser(state),
   sections: getSections(state),
   shop: getShopItems(state),
-  path: getPathLoc(state)
+  path: getPathLoc(state),
+  dis: getDiscount(state)
   
 });
 

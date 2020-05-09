@@ -16,3 +16,5 @@ export const getPreviewCollections = createSelector(
       items: shopItems[key].items.slice(0, 4)
     }))
 );
+
+export const getDiscount = state => state.shop.discount;

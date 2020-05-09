@@ -8,7 +8,7 @@ import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
 class SignUp extends React.Component {
-  state = { displayName: '', email: '', password: '', confirmPassword: '', dob:'' };
+  state = { displayName: '', email: '', password: '', confirmPassword: '', dob:'', erro: "" };
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -35,6 +35,7 @@ class SignUp extends React.Component {
       createUserProfileDocument(user, { displayName, dob });
     } catch (error) {
       console.error(error);
+      this.setState({erro: error});
     }
 
     this.setState({
@@ -47,11 +48,12 @@ class SignUp extends React.Component {
 
   render() {
     const { displayName, email, password, confirmPassword, dob } = this.state;
-
+  const res = this.state.erro ? <p style={{color: "red"}}>{this.state.erro.message}</p> : null;
     return (
       <SignUpContainer>
-        <SignUpTitle>I already have an account</SignUpTitle>
-        <span>Sign in with your email and password.</span>
+        <SignUpTitle>Create an account</SignUpTitle>
+        <span>Sign up with your email and password.</span>
+        {res}
         <form className='sign-up-form' onSubmit={this.handleSubmit}>
           <FormInput
             type='text'

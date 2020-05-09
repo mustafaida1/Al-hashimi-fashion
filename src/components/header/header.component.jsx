@@ -6,6 +6,7 @@ import CartIcon from '../cart-icon/cart-icon.component';
 import Cart from '../cart/cart.component';
 import { getCurrentUser } from '../../redux/user/user.selectors';
 import { getCartHidden } from '../../redux/cart/cart.selectors';
+import { setDiscounts } from '../../redux/shop/shop.actions'
 import {
   HeaderContainer,
   LogoContainer,
@@ -16,7 +17,7 @@ import './header.css'
 
 import { auth } from '../../firebase/firebase.utils';
 
-const Header = ({ currentUser, hidden, value, disabled, onTextChange }) => (
+const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch }) => (
   <HeaderContainer>
     <LogoContainer to='/'>
       <Logo className='logo' />
@@ -24,10 +25,14 @@ const Header = ({ currentUser, hidden, value, disabled, onTextChange }) => (
     </LogoContainer>
     
     <OptionsContainer>
-    <div className="container">
+    {/* <div className="container">
       <input type="text" placeholder="Search..."/>
       <div className="search"></div>
-    </div>
+    </div> */}
+    <OptionLink to='#'>
+        {currentUser ? <span onClick={() => dispatch(setDiscounts())}>GET DISCOUNT</span> : null}
+        
+      </OptionLink>
       <OptionLink to='/shop'>
         <span>SHOP</span>
       </OptionLink>

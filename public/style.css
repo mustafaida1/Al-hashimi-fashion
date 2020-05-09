@@ -123,8 +123,9 @@ svg {
 }
     .home-newsletter .single .btn {
     min-height: 50px; 
-    border-radius: 0 20px 20px 0;
+    width: 100%;
     background: #243c4f;
+    margin-top: 10px;
     color: #fff;
     }
 

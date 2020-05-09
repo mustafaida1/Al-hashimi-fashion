@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Modal from '../modal/modal'
 import { addItemToCart } from '../../redux/cart/cart.actions';
 import { setCurrentPath } from '../../redux/user/user.actions'
+import { getDiscount } from '../../redux/shop/shop.selectors'
 // import { reItem } from '../../redux/cart/cart.actions'
 import { getPathLoc } from '../../redux/user/user.selectors'
 // import { getItems } from '../../redux/cart/cart.selectors'
@@ -17,9 +18,9 @@ import {
 } from './collection-item.styles';
 import './fontawesome.css'
 
-const CollectionItem = ({ item, dispatch }) => {
+const CollectionItem = ({ item, dispatch, discount }) => {
   const { imageUrl, name, price, description } = item;
-  
+  const dis = price / 10;
   return (
     <div>
     <CollectionItemContainer>
@@ -29,7 +30,7 @@ const CollectionItem = ({ item, dispatch }) => {
       
       <CollectionFooterContainer>
         <NameContainer>{name}</NameContainer>
-        <PriceContainer>${price}</PriceContainer>
+        <PriceContainer>${discount ? price - dis : price }</PriceContainer>
       </CollectionFooterContainer>
       <AddButton className="add-button"
        
@@ -61,8 +62,8 @@ const CollectionItem = ({ item, dispatch }) => {
 };
 
 const mapStateToProps = state => ({
-  path: getPathLoc(state)
-  
+  path: getPathLoc(state),
+  discount: getDiscount(state)
 });
 
 // const mapDispatchToProps = dispatch => ({

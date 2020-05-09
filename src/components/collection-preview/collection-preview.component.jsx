@@ -13,7 +13,7 @@ import {
 } from './collection-preview.styles';
 
 const CollectionPreview = ({ title, items, routeName, push, pathname }) => {
-  console.log(routeName)
+  
   return(
   <CollectionPreviewContainer>
     <TitleContainer onClick={() => push(`${pathname}/${routeName}`)}>
