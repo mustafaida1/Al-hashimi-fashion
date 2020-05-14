@@ -19,8 +19,6 @@ import { setCurrentUser } from '../redux/user/user.actions';
 import { getCurrentUser } from '../redux/user/user.selectors';
 import { setCurrentPath } from '../redux/user/user.actions';
 import { getPathLoc } from '../redux/user/user.selectors';
-import { getDiscount } from '../redux/shop/shop.selectors';
-
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
 
 import './App.scss';
@@ -51,8 +49,7 @@ class App extends React.Component {
   };
   
   render() {
-    
-    console.log(this.props.dis)
+   
     
     return (
       <div className='App' >
@@ -88,9 +85,7 @@ const mapStateToProps = state => ({
   currentUser: getCurrentUser(state),
   sections: getSections(state),
   shop: getShopItems(state),
-  path: getPathLoc(state),
-  dis: getDiscount(state)
-  
+  path: getPathLoc(state)
 });
 
 const mapDispatchToProps = dispatch => ({

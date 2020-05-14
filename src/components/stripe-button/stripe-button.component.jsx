@@ -4,13 +4,28 @@ import { connect } from 'react-redux';
 import { push } from 'connected-react-router';
 
 import { resetCart as resetCartAction } from '../../redux/cart/cart.actions';
+import { getCartItems } from '../../redux/cart/cart.selectors'
+import { getCurrentUser } from '../../redux/user/user.selectors'
 
-const StripeCheckoutButton = ({ price, push, resetCart }) => {
+import { createAddToCart } from '../../firebase/firebase.utils' 
+
+const StripeCheckoutButton = ({ price, push, resetCart, carts, user }) => {
   const priceForStripe = price * 100;
   const publishableKey = 'pk_test_KzWXSJxJu3foClpqvGjmUlnp00c4Xcfgbb';
 
   const onToken = token => {
     alert('Successful payment!');
+    console.log(carts)
+    try{
+      carts.map(cartItem => {
+        createAddToCart(user, cartItem)
+      })
+      // createAddToCart(user, {...carts})
+    } catch (error) {
+      console.log(error)
+    }
+    resetCart();
+   
   };
 
   return (
@@ -29,12 +44,17 @@ const StripeCheckoutButton = ({ price, push, resetCart }) => {
   );
 };
 
+const mapStateToProps = state => ({
+  carts: getCartItems(state),
+  user: getCurrentUser(state)
+})
+
 const mapDispatchToProps = dispatch => ({
   resetCart: () => dispatch(resetCartAction()),
   push: route => dispatch(push(route))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(StripeCheckoutButton);

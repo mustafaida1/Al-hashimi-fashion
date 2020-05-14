@@ -38,7 +38,7 @@ const config = {
 //   appId: "1:509017830918:web:316327cafcc447265d7587"
 // };
 
-firebase.initializeApp(config);
+const app = firebase.initializeApp(config);
 
 export const firestore = firebase.firestore();
 export const auth = firebase.auth();
@@ -82,5 +82,42 @@ export const getUserDocumentRef = async uid => {
     console.error('error fetching user', error.message);
   }
 };
+
+export const createAddToCart = async(userAuth, additionalData) => {
+  const userRef = firestore.doc(`users/${userAuth.id}`);
+  const snapshot = await userRef.get();
+  if(snapshot.exists) {
+    const db = firebase.firestore(app)
+    const {imageUrl, price, name, quantity, id} = {...additionalData}
+    try {
+      await db.collection('users').doc(userAuth.id).collection('cartItem').doc().set({
+        imageUrl,
+        price,
+        name,
+        quantity,
+        id
+      })
+    } catch(error) {
+      console.log(error)
+    }
+    
+  }
+}
+
+export const sendAMessaage = async(userAuth, Data) => {
+  const userRef = firestore.doc(`users/${userAuth.id}`);
+  const snapshot = await userRef.get();
+  if(snapshot.exists) {
+    const db = firebase.firestore(app);
+    try{
+      await db.collection('users').doc(userAuth.id).collection('messages').doc().set({
+        Data
+      })
+    }catch(error) {
+      console.log(error)
+    }
+  }
+ 
+}
 
 export default firebase;

@@ -3,56 +3,44 @@ import React from 'react';
 import FormInput from '../../../components/form-input/form-input.component';
 import CustomButton from '../../../components/custom-button/custom-button.component';
 
-// import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-
+import { connect } from 'react-redux'
 import { SignUpContainer, SignUpTitle } from './sign-up.styles';
 
+import { getCurrentUser } from '../../../redux/user/user.selectors'
+import { sendAMessaage } from '../../../firebase/firebase.utils'
+
 class SignUp extends React.Component {
-  state = { displayName: '', email: '', password: '', confirmPassword: '', number:'' };
+  state = { displayName: this.props.user.displayName, email: this.props.user.email, message: '', number:'' };
 
   handleChange = event => {
     const { name, value } = event.target;
 
     this.setState({ [name]: value });
   };
+  handleText = event => {
+    this.setState({message: event.target.value})
+  }
+  sendMessage = (e) => {
+    e.preventDefault();
+    const message = this.state.message;
+    const number = this.state.number;
+    try {
+      sendAMessaage(this.props.user, {message,number})
+    } catch(error) {
+      console.log(error)
+    } finally {
+      this.setState({number: '', message:''})
+    }
+  }
 
-  // handleSubmit = async event => {
-  //   event.preventDefault();
-
-  //   const { displayName, email, password, confirmPassword, dob } = this.state;
-
-  //   if (password !== confirmPassword) {
-  //     alert("passwords don't match");
-  //     return;
-  //   }
-
-  //   try {
-  //     const { user } = await auth.createUserWithEmailAndPassword(
-  //       email,
-  //       password
-  //     );
-
-  //     createUserProfileDocument(user, { displayName, dob });
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-
-  //   this.setState({
-  //     displayName: '',
-  //     email: '',
-  //     password: '',
-  //     confirmPassword: ''
-  //   });
-  // };
 
   render() {
     const { displayName, email, number } = this.state;
-
     return (
       <SignUpContainer>
         <SignUpTitle>Contact us</SignUpTitle>
         <span>We'd love to hear from you!.</span>
-        <form className='sign-up-form' onSubmit={this.handleSubmit}>
+        <form className='sign-up-form' onSubmit={this.sendMessage}>
           <FormInput
             type='text'
             name='displayName'
@@ -60,6 +48,7 @@ class SignUp extends React.Component {
             onChange={this.handleChange}
             label='Name'
             required
+            disabled
           />
           <FormInput
             type='email'
@@ -68,6 +57,7 @@ class SignUp extends React.Component {
             onChange={this.handleChange}
             label='Email'
             required
+            disabled
           />
           <FormInput
             type='number'
@@ -78,14 +68,20 @@ class SignUp extends React.Component {
             required
           />
           
-          <textarea className="p-3 d-block mt-1 mb-4 w-100" placeholder="Message" ></textarea>
+          <textarea className="p-3 d-block mt-1 mb-4 w-100" placeholder="Message" 
+          value={this.state.message}
+          onChange={this.handleText}></textarea>
          
           
-          <CustomButton type='submit'>Send Us message</CustomButton>
+          <CustomButton type='submit' onClick={this.sendMessage}>Send Us message</CustomButton>
         </form>
       </SignUpContainer>
     );
   }
 }
 
-export default SignUp;
+const mapStateToProps = state => ({
+  user: getCurrentUser(state)
+})
+
+export default connect(mapStateToProps)(SignUp);

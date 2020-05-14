@@ -112,18 +112,8 @@ const Modal = ({path, dispatch, item})=> {
             
             <div className="card-body">
               <div className="row">
-                <div className="col-md-6">
-
-                  <select className="md-form mdb-select colorful-select dropdown-primary">
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">White</option>
-                    <option value="2">Black</option>
-                    <option value="3">Pink</option>
-                  </select>
-                  <label>Select color</label>
-
-                </div>
-                <div className="col-md-6">
+                
+                <div className="col-md-12 text-center">
 
                   <select className="md-form mdb-select colorful-select dropdown-primary">
                     <option value="" disabled selected>Choose your option</option>

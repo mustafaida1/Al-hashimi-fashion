@@ -72,7 +72,7 @@ const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch }
       )}
     </OptionsContainer>
     {hidden ? null : <Cart />}
-    {console.log(currentUser)}
+    
   </HeaderContainer>
 );
 

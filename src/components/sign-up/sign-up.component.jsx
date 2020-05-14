@@ -34,7 +34,7 @@ class SignUp extends React.Component {
 
       createUserProfileDocument(user, { displayName, dob });
     } catch (error) {
-      console.error(error);
+     
       this.setState({erro: error});
     }
 
