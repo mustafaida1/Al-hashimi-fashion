@@ -6,7 +6,8 @@ import CartIcon from '../cart-icon/cart-icon.component';
 import Cart from '../cart/cart.component';
 import { getCurrentUser } from '../../redux/user/user.selectors';
 import { getCartHidden } from '../../redux/cart/cart.selectors';
-import { setDiscounts } from '../../redux/shop/shop.actions'
+import { setDiscounts } from '../../redux/shop/shop.actions';
+import { getHidden } from '../../redux/shop/shop.selectors';
 import {
   HeaderContainer,
   LogoContainer,
@@ -17,7 +18,7 @@ import './header.css'
 
 import { auth } from '../../firebase/firebase.utils';
 
-const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch }) => (
+const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch, hiddent }) => (
   <HeaderContainer>
     <LogoContainer to='/'>
       <Logo className='logo' />
@@ -30,7 +31,7 @@ const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch }
       <div className="search"></div>
     </div> */}
     <OptionLink to='#'>
-        {currentUser ? <span onClick={() => dispatch(setDiscounts())}>GET DISCOUNT</span> : null}
+        {currentUser && hiddent? <span onClick={() => dispatch(setDiscounts())}>GET DISCOUNT</span> : null}
         
       </OptionLink>
       <OptionLink to='/shop'>
@@ -58,7 +59,7 @@ const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch }
       {currentUser ? (
         <OptionLink as='div' onClick={() => auth.signOut()}>
           <div className="containers">
-            <img src="https://img.icons8.com/color/48/000000/administrator-male--v1.png" alt="Avatar" className="image" />
+            <img src={currentUser.url} alt="Avatar" className="image" style={{"height": "70px", "width":"60px","marginLeft":"-15px", "marginTop":"-50px","position":"absolute"}}/>
             <div className="middle">
               <div className="text">{currentUser ? currentUser.displayName : ''}</div>
             </div>
@@ -78,7 +79,8 @@ const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch }
 
 const mapStateToProps = state => ({
   currentUser: getCurrentUser(state),
-  hidden: getCartHidden(state)
+  hidden: getCartHidden(state),
+  hiddent: getHidden(state)
 });
 
 export default connect(mapStateToProps)(Header);

@@ -9,7 +9,8 @@ import { setDiscount } from './shop.types'
 
 const INITIAL_STATE = {
   items: SHOP_ITEMS,
-  discount: false
+  discount: false,
+  hiddent:true
 };
 // INITIAL_STATE.filtred = INITIAL_STATE.items ? Object.keys(INITIAL_STATE.items).forEach(igkey => {
 //   INITIAL_STATE.items[igkey].items.filter(ke => {
@@ -23,7 +24,8 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
     case setDiscount.SET_DISCOUNT:
       return {
         ...state,
-        discount: true
+        discount: true,
+        hiddent:false
       }
     default:
       return state;

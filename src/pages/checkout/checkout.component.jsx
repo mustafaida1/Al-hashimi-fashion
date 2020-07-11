@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getDiscount } from '../../redux/shop/shop.selectors'
 
 import {
   getCartItems,
@@ -16,7 +17,7 @@ import {
   WarningContainer
 } from './checkout.styles';
 
-const CheckoutPage = ({ cartItems, total }) => (
+const CheckoutPage = ({ cartItems, total, hiddent }) => (
   <CheckoutPageContainer>
     <CheckoutHeaderContainer>
       <HeaderBlockContainer>
@@ -39,7 +40,7 @@ const CheckoutPage = ({ cartItems, total }) => (
       <CheckoutItem key={idx} cartItem={cartItem} />
     ))}
     <TotalContainer>
-      <span>TOTAL: ${total}</span>
+      <span>TOTAL: ${hiddent ? total -= total / 10 : total}</span>
     </TotalContainer>
     <WarningContainer>
       *Please use the following test credit card for payments*
@@ -52,7 +53,9 @@ const CheckoutPage = ({ cartItems, total }) => (
 
 const mapStateToProps = state => ({
   cartItems: getCartItems(state),
-  total: getCombinedCartPrices(state)
+  total: getCombinedCartPrices(state),
+  hiddent: getDiscount(state)
+  
 });
 
 export default connect(mapStateToProps)(CheckoutPage);

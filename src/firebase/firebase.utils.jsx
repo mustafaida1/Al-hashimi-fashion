@@ -88,12 +88,13 @@ export const createAddToCart = async(userAuth, additionalData) => {
   const snapshot = await userRef.get();
   if(snapshot.exists) {
     const db = firebase.firestore(app)
-    const {imageUrl, price, name, quantity, id} = {...additionalData}
+    const {imageUrl, price, name, quantity, id, description} = {...additionalData}
     try {
       await db.collection('users').doc(userAuth.id).collection('cartItem').doc().set({
         imageUrl,
         price,
         name,
+        description,
         quantity,
         id
       })
@@ -101,9 +102,12 @@ export const createAddToCart = async(userAuth, additionalData) => {
       console.log(error)
     }
     
-  }
-}
+  }  
+} 
 
+// export const getPhoto = async(userAuth) => {
+//   const userRef = firestore.doc(`users/${}`)
+// }
 export const sendAMessaage = async(userAuth, Data) => {
   const userRef = firestore.doc(`users/${userAuth.id}`);
   const snapshot = await userRef.get();
