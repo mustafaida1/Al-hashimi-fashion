@@ -20,7 +20,7 @@ import { getCurrentUser } from '../redux/user/user.selectors';
 import { setCurrentPath } from '../redux/user/user.actions';
 import { getPathLoc } from '../redux/user/user.selectors';
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
-
+import Description from '../pages/descrip/description'
 import './App.scss';
 
 class App extends React.Component {
@@ -34,9 +34,10 @@ class App extends React.Component {
       // userAuth returns null when auth.signOut() is called
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-
+        
         userRef.onSnapshot(snapShot => {
-          setCurrentUser({ id: snapShot.id, ...snapShot.data() });
+          console.log(userAuth.photoURL)
+          setCurrentUser({ id: snapShot.id, ...snapShot.data(), url: userAuth.photoURL });
         });
       }
 
@@ -59,6 +60,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
+          <Route exact path="/product/des" component={Description}/>
           <Route
             exact
             path='/signIn'
@@ -70,12 +72,13 @@ class App extends React.Component {
               )
             }
           />
+            
           {this.props.currentUser ? <Route exact path='/contact' component={ContactPage} /> : <h1 className="center">Register or Signin to complete</h1>}
          
           
           {this.props.currentUser ? <Route exact path='/checkout' component={CheckoutPage} /> : <h1 className="center">Register or Signin</h1> } 
         </Switch>
-        
+       
       </div>
     );
   }

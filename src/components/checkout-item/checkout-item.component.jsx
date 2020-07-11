@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { getDiscount } from '../../redux/shop/shop.selectors'
+
 import {
   removeItemAllFromCart,
   addItemToCart,
@@ -15,8 +17,9 @@ import {
   RemoveItemContainer
 } from './checkout-item.styles';
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem, hiddent }) => {
   const { imageUrl, price, name, quantity, id } = cartItem;
+  let pri = price;
   return (
     <CheckoutItemContainer>
       <ImageContainer>
@@ -28,7 +31,10 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
         <span>{quantity}</span>
         <div onClick={() => addItem(cartItem)}>&#10095;</div>
       </QuantityContainer>
-      <TextContainer>${price}</TextContainer>
+      <TextContainer>
+      ${hiddent ? pri -= pri / 10 : pri}
+        
+        </TextContainer>
       <RemoveItemContainer onClick={() => clearItem(id)}>
         &#x2715;
       </RemoveItemContainer>
@@ -42,7 +48,11 @@ const mapDispatchToProps = dispatch => ({
   removeItem: cartItemId => dispatch(removeItemFromCart(cartItemId))
 });
 
+const mapStateToProps = state => ({
+  hiddent: getDiscount(state)
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(CheckoutItem);

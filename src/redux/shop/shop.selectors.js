@@ -18,3 +18,4 @@ export const getPreviewCollections = createSelector(
 );
 
 export const getDiscount = state => state.shop.discount;
+export const getHidden = state => state.shop.hiddent;

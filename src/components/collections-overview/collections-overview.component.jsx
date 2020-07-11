@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CollectionPreview from '../collection-preview/collection-preview.component';
-import { getPreviewCollections, getDiscount } from '../../redux/shop/shop.selectors';
+import { getPreviewCollections } from '../../redux/shop/shop.selectors';
 
 import { CollectionsOverviewContainer } from './collections-overview.styles';
 
