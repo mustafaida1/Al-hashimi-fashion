@@ -41,10 +41,10 @@ const Header = ({ currentUser, hidden, value, disabled, onTextChange, dispatch, 
         <span>CONTACT</span>
       </OptionLink> */}
         <div className="dropdown">
-          <button type="button" className="btn dropdown-toggle" data-toggle="dropdown">
+          <button type="button" className="btn dropdown-toggle" data-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
           CATEGORY
           </button>
-          <div className="dropdown-menu">
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             
             <p className="dropdown-item" href="#"><OptionLink to="/shop/hats">Hats</OptionLink></p>
             <p className="dropdown-item" href="#"><OptionLink to="/shop/jackets">Jackets</OptionLink></p>

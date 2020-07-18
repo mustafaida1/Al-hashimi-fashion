@@ -9,14 +9,16 @@ import { getCurrentUser } from '../../redux/user/user.selectors'
 
 import { createAddToCart } from '../../firebase/firebase.utils' 
 
-const StripeCheckoutButton = ({ price, push, resetCart, carts, user }) => {
+const StripeCheckoutButton = ({ price, push, resetCart, carts, user, text, onclick }) => {
   const priceForStripe = price * 100;
   const publishableKey = 'pk_test_KzWXSJxJu3foClpqvGjmUlnp00c4Xcfgbb';
 
   const onToken = token => {
     alert('Successful payment!');
     console.log(carts)
+    
     try{
+      
       carts.map(cartItem => {
         createAddToCart(user, cartItem)
       })
@@ -30,7 +32,7 @@ const StripeCheckoutButton = ({ price, push, resetCart, carts, user }) => {
 
   return (
     <StripeCheckout
-      label='Pay with 💳'
+      label={text}
       name='AL-HASHIMI Ltd.'
       billingAddress
       shippingAddress

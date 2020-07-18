@@ -6,6 +6,8 @@ import { getDiscount } from '../../redux/shop/shop.selectors'
 import { addItemToCart } from '../../redux/cart/cart.actions'
 import { getShopItems } from '../../redux/shop/shop.selectors'
 import { getCurrentUser } from '../../redux/user/user.selectors'
+import { getCartItems } from '../../redux/cart/cart.selectors'
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component'
 
 import './description.css'
 
@@ -70,6 +72,33 @@ class Description extends React.Component {
 								this.props.path.price = discount;
 							} return this.props.dispatch(addItemToCart(this.props.path))}}
 						>Add to cart</a></p>
+						<div>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onClick={() => this.props.dispatch(addItemToCart(this.props.path))}>
+							Pay now
+						</button>
+						
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Are you sure to buy it</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body text-center">
+									<StripeCheckoutButton text="Buy now" price={discount} data-dismiss="modal"/>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									
+								</div>
+								</div>
+							</div>
+							</div>
+						
+						
+						</div>
 					</div>
 
 					<p className="des">{description}</p>
@@ -170,8 +199,9 @@ class Description extends React.Component {
 const mapStateToProps = state => ({
 	path: getPathLoc(state),
 	items: getShopItems(state),
-	currentUser: getCurrentUser(state),
-	hiddent: getDiscount(state)
+	hiddent: getDiscount(state),
+	carts: getCartItems(state),
+  	user: getCurrentUser(state)
 })
 
 export default connect(mapStateToProps)(Description)

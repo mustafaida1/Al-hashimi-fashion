@@ -88,13 +88,14 @@ export const createAddToCart = async(userAuth, additionalData) => {
   const snapshot = await userRef.get();
   if(snapshot.exists) {
     const db = firebase.firestore(app)
-    const {imageUrl, price, name, quantity, id, description} = {...additionalData}
+    const {imageUrl, price, name, quantity, id} = {...additionalData}
+    const createdAt = new Date();
     try {
       await db.collection('users').doc(userAuth.id).collection('cartItem').doc().set({
         imageUrl,
         price,
         name,
-        description,
+        createdAt,
         quantity,
         id
       })

@@ -47,7 +47,7 @@ const CheckoutPage = ({ cartItems, total, hiddent }) => (
       <br />
       4242 4242 4242 4242  —  Exp: 01/21  —  CVV: 123
     </WarningContainer>
-    <StripeCheckoutButton price={total} />
+    <StripeCheckoutButton text="Pay with 💳" price={hiddent ? total -= total / 10 : total} />
   </CheckoutPageContainer>
 );
 

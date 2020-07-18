@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route, Redirect, } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios'
+import cors from 'cors'
 
 import Header from '../components/header/header.component';
 
@@ -21,6 +23,7 @@ import { setCurrentPath } from '../redux/user/user.actions';
 import { getPathLoc } from '../redux/user/user.selectors';
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
 import Description from '../pages/descrip/description'
+
 import './App.scss';
 
 class App extends React.Component {
@@ -28,6 +31,7 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount = () => {
+    axios.get('https://hashimi-6f50c.firebaseio.com/').then(res => res.json).then(res => console.log(res.data))
     const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
@@ -99,4 +103,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(App, cors);
