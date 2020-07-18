@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Modal from '../modal/modal'
 import { addItemToCart } from '../../redux/cart/cart.actions';
 import { setCurrentPath } from '../../redux/user/user.actions'
 import { getDiscount } from '../../redux/shop/shop.selectors'
